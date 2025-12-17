@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.board.Board;
 import org.example.model.Space;
-import org.example.util.BoardTemplate;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,7 +126,7 @@ public class Main {
 
             for (int i = 0; i < BOARD_LIMIT; i++) {
                 for(var col: board.getSpaces()) {
-                    args[argPos ++] = " " + (isNull(col.get(i).getActual()) ? " " : col.get(i).getActual());
+                    args[argPos ++] = " " + (isNull(col.get(i).getActual(Integer.parseInt(getText()))) ? " " : col.get(i).getActual(Integer.parseInt(getText())));
                 }
             }
             System.out.println("Seu jogo se encontra da seguinte forma:");

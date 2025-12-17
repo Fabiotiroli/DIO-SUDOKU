@@ -15,7 +15,7 @@ public class Space {
         }
     }
 
-    public Integer getActual() {
+    public Integer getActual(int i) {
         return actual;
     }
 
@@ -35,4 +35,6 @@ public class Space {
     public boolean isFixed() {
         return fixed;
     }
+
+
 }

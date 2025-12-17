@@ -24,12 +24,12 @@ public class Board {
     }
 
     public GameStatusEnum getStatus() {
-        if (spaces.stream().flatMap(Collection::stream).noneMatch(s -> !s.isFixed() && nonNull(s.getActual()))) {
+        if (spaces.stream().flatMap(Collection::stream).noneMatch(s -> !s.isFixed() && nonNull(s.getActual(Integer.parseInt(getText()))))) {
             return NON_STARTED;
         }
 
         return spaces.stream().flatMap(Collection::stream)
-                .anyMatch(s -> isNull(s.getActual())) ? GameStatusEnum.INCOMPLETE : GameStatusEnum.COMPLETE;
+                .anyMatch(s -> isNull(s.getActual(Integer.parseInt(getText())))) ? GameStatusEnum.INCOMPLETE : GameStatusEnum.COMPLETE;
     }
 
     public boolean hasErrors() {
@@ -37,7 +37,7 @@ public class Board {
             return false;
         }
         return spaces.stream().flatMap(Collection::stream)
-                .anyMatch(s -> nonNull(s.getActual()) && !s.getActual().equals(s.getExpected()));
+                .anyMatch(s -> nonNull(s.getActual(Integer.parseInt(getText()))) && !s.getActual(Integer.parseInt(getText())).equals(s.getExpected()));
     }
 
     public boolean changeValue(final int col, final int row, final int value) {

@@ -8,6 +8,7 @@ public enum GameStatusEnum {
 
 
     private String label;
+    private String status;
 
     private GameStatusEnum(final String label) {
         this.label = label;
@@ -15,6 +16,10 @@ public enum GameStatusEnum {
 
     GameStatusEnum() {
 
+    }
+
+    public String getGameStatus() {
+        return status;
     }
 
     public String getLabel() {
